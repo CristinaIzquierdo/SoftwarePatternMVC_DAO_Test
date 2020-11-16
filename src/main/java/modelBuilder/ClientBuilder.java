@@ -6,6 +6,7 @@ import exception.DuplicatedCodeException;
 import exception.PossibleClientDataDuplication;
 import model.ClientDAO;
 import uml.Client;
+import uml.Client.DocumentType;
 
 public class ClientBuilder {
 	
@@ -13,7 +14,10 @@ public class ClientBuilder {
 							   String nombreCliente, 
 							   String apellidoContacto,
 							   String telefono,
-							   String dNI) throws DuplicatedCodeException, 
+							   DocumentType documentType,
+							   String DNI,
+							   String email,
+							   String password) throws DuplicatedCodeException, 
 										   PossibleClientDataDuplication, 
 										   DNIException{
 
