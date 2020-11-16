@@ -9,7 +9,7 @@ import uml.Client;
 
 public class ClientBuilder {
 	
-	public static Client build(int codigoCliente, 
+	public static Client buildClient(int codigoCliente, 
 							   String nombreCliente, 
 							   String apellidoContacto,
 							   String telefono,

@@ -11,7 +11,7 @@ public class OrderDAO implements ICRUD{
 	//Credenciales para la base de datos
 	Database db = new Database();
 
-	//implementa los métodos de la interfaz ICRUD (CRUD)
+	//implementa los mï¿½todos de la interfaz ICRUD (CRUD)
 	
 	@Override
 	public String insert(Object obj) {
@@ -29,12 +29,13 @@ public class OrderDAO implements ICRUD{
 			
 			//le asigna estos valores a la consulta sql
 			pst.setInt(1, order.getCodigoPedido());
-			pst.setDate(2, (Date) order.getFechaPedido());
-			pst.setDate(3, (Date) order.getFechaEsperada());
-			pst.setDate(4, (Date) order.getFechaEntrega());
+			pst.setDate(2, order.getFechaPedido());
+			pst.setDate(3, (Calendar) order.getFechaEsperada());
+			pst.setDate(4, (Calendar) order.getFechaEntrega());
 			pst.setString(5, order.getEstado());
 			pst.setString(6, order.getComentarios());
 			pst.setInt(7, order.getCodigoCliente());
+			
 			
 			int fields = pst.executeUpdate(); //ejecuta la consulta sql e indica cuantas filas tiene 
 			//!! se usa executeUpdate() porque hay una modificacion en la tabla (insert)

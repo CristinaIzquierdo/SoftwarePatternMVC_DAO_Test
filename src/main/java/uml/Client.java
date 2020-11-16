@@ -20,7 +20,7 @@ public class Client {
 
 	}
 
-	private DocumentType documentType;
+	
 	
 	
 	//Referencia a la tabla Cliente de la base de datos Jardineria
@@ -38,7 +38,9 @@ public class Client {
 	private String codigoPostal;
 	private int codigoEmpleadoRepVentas;
 	private int limiteCredito;
+	
 	//Campos nuevos
+	private DocumentType documentType;
 	private String DNI;
 	private String mail;
 	private String password;
@@ -47,37 +49,18 @@ public class Client {
 	
 	
 	//Constructores
+	
+	//Constructor vacío
 	public Client() {
 	}
 	
-		
-		
-	public Client(int codigoCliente, String nombreCliente, String apellidoContacto, String telefono) {
-		this.codigoCliente = codigoCliente;
-		this.nombreCliente = nombreCliente;
-		this.apellidoContacto = apellidoContacto;
-		this.telefono = telefono;
-	}
+				
 	
-	
-
-
-
-	public Client(int codigoCliente, String nombreCliente, String apellidoContacto, String telefono, String dNI) {
-		this.codigoCliente = codigoCliente;
-		this.nombreCliente = nombreCliente;
-		this.apellidoContacto = apellidoContacto;
-		this.telefono = telefono;
-		DNI = dNI;
-	}
-
-
-
-	public Client(DocumentType documentType, int codigoCliente, String nombreCliente, String nombreContacto,
+	//Constructor completo
+	public Client(int codigoCliente, String nombreCliente, String nombreContacto,
 			String apellidoContacto, String telefono, String fax, String lineaDireccion1, String lineaDireccion2,
 			String ciudad, String region, String pais, String codigoPostal, int codigoEmpleadoRepVentas,
 			int limiteCredito, String dNI, String mail, String password) {
-		this.documentType = documentType;
 		this.codigoCliente = codigoCliente;
 		this.nombreCliente = nombreCliente;
 		this.nombreContacto = nombreContacto;
@@ -99,25 +82,17 @@ public class Client {
 	
 	
 
-
-	public Client(int codigoCliente, String nombreCliente, String nombreContacto, String apellidoContacto,
-			String telefono, String fax, String lineaDireccion1, String lineaDireccion2, String ciudad, String region,
-			String pais, String codigoPostal, int codigoEmpleadoRepVentas, int limiteCredito) {
-		super();
+	public Client(int codigoCliente, String nombreContacto, String apellidoContacto, String telefono,
+			DocumentType documentType, String dNI, String mail, String password) {
+		
 		this.codigoCliente = codigoCliente;
-		this.nombreCliente = nombreCliente;
 		this.nombreContacto = nombreContacto;
 		this.apellidoContacto = apellidoContacto;
 		this.telefono = telefono;
-		this.fax = fax;
-		this.lineaDireccion1 = lineaDireccion1;
-		this.lineaDireccion2 = lineaDireccion2;
-		this.ciudad = ciudad;
-		this.region = region;
-		this.pais = pais;
-		this.codigoPostal = codigoPostal;
-		this.codigoEmpleadoRepVentas = codigoEmpleadoRepVentas;
-		this.limiteCredito = limiteCredito;
+		this.documentType = documentType;
+		DNI = dNI;
+		this.mail = mail;
+		this.password = password;
 	}
 
 
@@ -302,22 +277,6 @@ public class Client {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-	
-	
-	
-
-
-	
+		
 
 }

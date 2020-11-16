@@ -1,20 +1,16 @@
 package exception;
 
-import uml.Client;
 
-public class DuplicatedCodeException extends ClientException{
+public class DuplicatedCodeException extends Exception{
 	
 	/**
 	 default serial version
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public DuplicatedCodeException(Client c) {
-		super(c);
-	}
 	
 	public String getMessage() {
-		return "El cliente con el c�digo" + client.getCodigoCliente()+ "" + client.getNombreCliente() + " ya existe.";
+		return "El cliente con ese código ya existe en nuestra base de datos.";
 	}
 
 }

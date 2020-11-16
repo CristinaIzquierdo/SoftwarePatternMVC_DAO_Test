@@ -1,14 +1,14 @@
 package uml;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Order {
 	
 	//Referencia a la tabla Pedido de la base de datos Jardineria
 	private int codigoPedido;
-	private Date fechaPedido;
-	private Date fechaEsperada;
-	private Date fechaEntrega;
+	private Calendar fechaPedido;
+	private Calendar fechaEsperada;
+	private Calendar fechaEntrega;
 	private String estado;
 	private String comentarios;
 	private int codigoCliente;
@@ -16,19 +16,13 @@ public class Order {
 	
 	
 	//Constructores
+	
+	//Constructor vacio
 	public Order() {
 	}
 	
-	
-	public Order(Date fechaPedido, Date fechaEsperada, int codigoCliente) {
-		this.fechaPedido = fechaPedido;
-		this.fechaEntrega = fechaEsperada;
-		this.codigoCliente = codigoCliente;
-		
-	}
-
-		
-	public Order(int codigoPedido, Date fechaPedido, Date fechaEsperada, Date fechaEntrega, String estado,
+	//constructor completo
+	public Order(int codigoPedido, Calendar fechaPedido, Calendar fechaEsperada, Calendar fechaEntrega, String estado,
 			String comentarios, int codigoCliente) {
 		this.codigoPedido = codigoPedido;
 		this.fechaPedido = fechaPedido;
@@ -38,10 +32,20 @@ public class Order {
 		this.comentarios = comentarios;
 		this.codigoCliente = codigoCliente;
 	}
-
+	
+	
+	
+	public Order(int codigoPedido, Calendar fechaPedido, Calendar fechaEsperada, int codigoCliente) {
+		this.codigoPedido = codigoPedido;
+		this.fechaPedido = fechaPedido;
+		this.fechaEntrega = fechaEsperada;
+		this.codigoCliente = codigoCliente;
+	}
 
 	
 	//Getters y Setters
+	
+	
 	public int getCodigoPedido() {
 		return codigoPedido;
 	}
@@ -52,32 +56,32 @@ public class Order {
 	}
 
 
-	public Date getFechaPedido() {
+	public Calendar getFechaPedido() {
 		return fechaPedido;
 	}
 
 
-	public void setFechaPedido(Date fechaPedido) {
+	public void setFechaPedido(Calendar fechaPedido) {
 		this.fechaPedido = fechaPedido;
 	}
 
 
-	public Date getFechaEsperada() {
+	public Calendar getFechaEsperada() {
 		return fechaEsperada;
 	}
 
 
-	public void setFechaEsperada(Date fechaEsperada) {
+	public void setFechaEsperada(Calendar fechaEsperada) {
 		this.fechaEsperada = fechaEsperada;
 	}
 
 
-	public Date getFechaEntrega() {
+	public Calendar getFechaEntrega() {
 		return fechaEntrega;
 	}
 
 
-	public void setFechaEntrega(Date fechaEntrega) {
+	public void setFechaEntrega(Calendar fechaEntrega) {
 		this.fechaEntrega = fechaEntrega;
 	}
 

@@ -173,7 +173,10 @@ public class ClientDAO implements ICRUD{
 								   resultSet.getString("pais"),
 								   resultSet.getString("codigoPostal"),
 								   resultSet.getInt("codigoEmpleadoRepVentas"),
-								   resultSet.getInt("limiteCredito"))
+								   resultSet.getInt("limiteCredito"),
+								   resultSet.getString("DNI"),
+								   resultSet.getString("mail"),
+								   resultSet.getString("password"))
 								  );
 			}
 			
@@ -219,7 +222,10 @@ public class ClientDAO implements ICRUD{
 						   resultSet.getString("pais"),
 						   resultSet.getString("codigoPostal"),
 						   resultSet.getInt("codigoEmpleadoRepVentas"),
-						   resultSet.getInt("limiteCredito"))
+						   resultSet.getInt("limiteCredito"),
+						   resultSet.getString("DNI"),
+						   resultSet.getString("mail"),
+						   resultSet.getString("password"))
 						  );
 			}
 			
