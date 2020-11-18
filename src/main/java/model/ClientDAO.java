@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -248,16 +249,9 @@ public class ClientDAO implements ICRUD{
 		return null;
 	}
 		
-	
-	
-	public boolean possibleDataDuplication(Client client) {
+	public List<Client> getAll() {
 		List<Client> data = new ArrayList<>();
-		for (Client c: data) {
-			if (client.getNombreCliente().equals(c.getApellidoContacto()) || client.getApellidoContacto().equals(c.getApellidoContacto()) || client.getTelefono().equals(c.getTelefono())) {
-				return true;
-			}
-		}
-		return false;
+		return data;
 	}
 
 }
