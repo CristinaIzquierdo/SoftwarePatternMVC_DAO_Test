@@ -1,40 +1,65 @@
 package modelBuilder;
 
-import java.util.Date;
+import java.util.Calendar;
 
-import exception.CodigoClienteException;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+import exception.ClientNotFoundException;
 import exception.CreationTodayException;
-import exception.ThreeDaysLaterException;
-import model.OrderDAO;
+import exception.MinDateOrderException;
+import model.ClientDAO;
+import uml.Client;
 import uml.Order;
 
 public class OrderBuilder {
 	
-	public static Order build(int codigoPedido, Date fechaPedido, Date fechaEsperada, int codigoCliente) throws CreationTodayException, ThreeDaysLaterException, CodigoClienteException{
+	public static Order build(int codigoPedido, 
+							  Calendar fechaPedido, 
+							  Calendar fechaEsperada, 
+							  int codigoCliente) throws Exception {
 		
-		OrderDAO orderDao = new OrderDAO();
+		Calendar fechaActual = new GregorianCalendar();
+		Calendar fechaMinimaEsperada = new GregorianCalendar();
+		fechaMinimaEsperada = fechaPedido;
 		
-		Order order = new Order(fechaPedido, fechaEsperada, codigoCliente);
 		
-		Date fecha = new Date(); //fecha actual
+		if ((fechaPedido.get(Calendar.DAY_OF_MONTH) == fechaActual.get(Calendar.DAY_OF_MONTH))
+				&&  (fechaPedido.get(Calendar.MONTH) == fechaActual.get(Calendar.MONTH))
+				&& (fechaPedido.get(Calendar.YEAR) == fechaPedido.get(Calendar.YEAR))) 
+		{	
+			
+		} else throw new CreationTodayException();
 		
-		if(fechaPedido != fecha){
-			throw new CreationTodayException(order);
+		fechaMinimaEsperada.add(Calendar.DAY_OF_MONTH, 3);
+		
+		if (fechaEsperada.before(fechaMinimaEsperada)) 
+		{
+			throw new MinDateOrderException();
 		}
 		
-		/*
-		 * 
-		 
-		if(fechaEsperada = (fecha.getDay()-3)) {
-			throw new ThreeDaysLaterException(order);
+		fechaMinimaEsperada.add(Calendar.DAY_OF_MONTH, -3);
+		
+		ClientDAO clientDAO = new ClientDAO();
+		
+		boolean clientExist = false;
+		
+		List <Client> clientesSaved = clientDAO.getAll();
+		
+		for (Client clienteSaved: clientesSaved) {
+			if (codigoCliente == clienteSaved.getCodigoCliente()) {
+				clientExist = true;
+			}
 		}
 		
-		*/
-		if(orderDao.getOrder(codigoCliente) == null) {
-			throw new CodigoClienteException(order);
+		if (clientExist == false) {
+			throw new ClientNotFoundException();
 		}
 		
-		return order;
+		return new Order(codigoPedido, 
+					     fechaPedido,
+					     fechaEsperada, 
+					     codigoCliente);
+		
 	}
-
 }

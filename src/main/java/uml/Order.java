@@ -1,5 +1,6 @@
 package uml;
 
+import java.sql.Date;
 import java.util.Calendar;
 
 public class Order {
@@ -46,6 +47,10 @@ public class Order {
 	//Getters y Setters
 	
 	
+	public Order(int int1, Date date, Date date2, Date date3, String string, String string2, int int2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCodigoPedido() {
 		return codigoPedido;
 	}

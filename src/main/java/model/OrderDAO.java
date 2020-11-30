@@ -29,9 +29,9 @@ public class OrderDAO implements ICRUD{
 			
 			//le asigna estos valores a la consulta sql
 			pst.setInt(1, order.getCodigoPedido());
-			pst.setDate(2, order.getFechaPedido());
-			pst.setDate(3, (Calendar) order.getFechaEsperada());
-			pst.setDate(4, (Calendar) order.getFechaEntrega());
+			pst.setDate(2, null, (Calendar) order.getFechaPedido());
+			pst.setDate(3, null, (Calendar) order.getFechaEsperada());
+			pst.setDate(4, null, (Calendar) order.getFechaEntrega());
 			pst.setString(5, order.getEstado());
 			pst.setString(6, order.getComentarios());
 			pst.setInt(7, order.getCodigoCliente());
@@ -102,9 +102,9 @@ public class OrderDAO implements ICRUD{
 			pst = connection.prepareStatement(sql); 
 			
 			//le asigna estos valores a la consulta sql
-			pst.setDate(1, (Date) order.getFechaPedido());
-			pst.setDate(2, (Date) order.getFechaEsperada());
-			pst.setDate(3, (Date) order.getFechaEntrega());
+			pst.setDate(1, null, (Calendar) order.getFechaPedido());
+			pst.setDate(2, null, (Calendar) order.getFechaEsperada());
+			pst.setDate(3, null, (Calendar) order.getFechaEntrega());
 			pst.setString(4, order.getEstado());
 			pst.setString(5, order.getComentarios());
 			pst.setInt(6, order.getCodigoCliente());
